@@ -2,12 +2,12 @@
 
    polargrapher - plot arbitrary polar functions
 
-#####SYNOPSIS
+#####USAGE
 
         polargrapher [OPTION]... [FILE]...
 
 #####DESCRIPTION
-   Plots arbitrary polar functions from file.
+   Plots arbitrary polar functions from file. Can also write frames to image files.
 
 #####OPTIONS
 
@@ -15,17 +15,25 @@
 
         -s n
                 window size, where n is the length and width in pixels
-		default size is 700
+		default window size is 700  
 		this option is ignored is -f is used
 
         -r n
                 writes every nth frame to a PNG image 
                 n=1 will record every frame, 
                 n=2 will record every other frame, 
-                n=3 will record every third frame, etc.
+                n=3 will record every third frame, etc.  
 		using -r without an argument will default to n=1
+	
+	-d directory
+		Directory where the images files from -r are to be written to.  
+		This directory must already exist. If this option is not set, then -r defaults to the directory 'frames' which must also already exist.  
+		If -d is used without an argument, recording will be disabled to prevent overwriting the default 'frames' directory.
+
 
 Pressing 'q' will exit the program.
+
+The above options can also be defined directly in the input files. They must be defined on their own lines and will override the command line options. 
 
 #####DEFINING FUNCTIONS
 
@@ -74,6 +82,16 @@ Below is an example function definition block with options.
         line_width           1
         rotation_speed       pi/10000
         end
+
+#####BUILDING
+
+Dependencies: 
+	libsfml (make sure this is SFML 2 and not SFML 1.6)
+	libmuparser
+
+Once dependencies are installed, simply run 'make'.
+
+This program is intended for * nix environments, but should be fairly easy to modify for Windows if compiling with MinGW. The only thing that should need to be changed is the forwardslash in the *void record()* function to conform to Windows' filepath syntax. 
 
 #####TODO
 

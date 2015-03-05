@@ -185,9 +185,9 @@ void parse_file(char* filename, std::vector<Func>& funcs) {
 					rotation = 0;
 				}
 				//check for fullscreen
-		//		else if(line == "fullscreen") {
-		//			fullscreen = true;
-		//		}
+				else if(line == "-f") {
+					fullscreen = true;
+				}
 				//parse other statements
 				else {
 					//grab keyword
@@ -213,11 +213,11 @@ void parse_file(char* filename, std::vector<Func>& funcs) {
 						color = sf::Color(r, g, b);
 					}
 					//window/graph size
-		//			else if(tag == "size") {
-		//				std::stringstream s;
-		//				s << line.substr(pos+1);
-		//				s >> size;
-		//			}
+					else if(tag == "-s") {
+						std::stringstream s;
+						s << line.substr(pos+1);
+						s >> size;
+					}
 					//theta max
 					else if(tag == "theta_max") {
 						mu::Parser p;
@@ -244,11 +244,11 @@ void parse_file(char* filename, std::vector<Func>& funcs) {
 						p.SetExpr(line.substr(pos+1));
 						rotation = p.Eval();
 					}
-		//			else if(tag == "record") {
-		//				std::stringstream s;
-		//				s << line.substr(pos+1);
-		//				s >> record_frameskip >> record_folder;
-		//			}
+					else if(tag == "-r") {
+						std::stringstream s;
+						s << line.substr(pos+1);
+						s >> record_frameskip >> record_folder;
+					}
 				}
 			}
 
@@ -262,12 +262,13 @@ void parse_options(int argc, char* argv[], std::vector<Func>& funcs){
 	
 	int c;
 	std::string frameskip_opt = "-1";
-	std::string  size_opt = "-1";
+	std::string size_opt = "-1";
+	std::string directory_opt = "";
 //	extern char *optarg;
 //	extern int optind, optopt;
 	
 	//using getopts 
-	while((c = getopt(argc, argv, "fs:r:")) != -1){
+	while((c = getopt(argc, argv, "fs:r:d:")) != -1){
 
 		int f = -1, s = -1;
 
@@ -294,6 +295,10 @@ void parse_options(int argc, char* argv[], std::vector<Func>& funcs){
 				}
 				size = s > 0  ? s : size;
 				break;
+			case 'd':
+				directory_opt.assign(optarg);
+				record_folder = directory_opt;
+				break;
 			case ':':
 				switch(optopt){
 					case 's':
@@ -301,6 +306,10 @@ void parse_options(int argc, char* argv[], std::vector<Func>& funcs){
 						break;
 					case 'r':
 						std::cerr << "using default frameskip of 0 for option -r\n";
+						break;
+					case 'd':
+						std::cerr << "option -d requires argument, disabling recording.\n";
+						record_frameskip = -1;
 						break;
 				}
 				break;
