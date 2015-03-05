@@ -1,0 +1,86 @@
+# Author : Zubir Husein
+# Welcome to my polar graphing program
+# This file defines the program settings and the functions to be drawn
+# lines beginning with # are comments and are ignored by program
+# if an option is left out, the default will be used
+
+# set window to fullscreen
+# windowed is default
+#fullscreen
+
+# set window/view size
+# size 700 is default
+#size 530
+
+# set recording frameskip and destination folder
+# 1 will record every frame, 2 will record every other frame, 3 will record every third frame, etc as PNG
+# 0 is default and disables recording
+# folder must exist before attempting to save recording there
+# record 0 frames
+
+# define a function
+function        200 * sin(4 *theta / 9)
+
+# set draw speed
+# this is how many points are drawn per frame at 60 fps
+# draw_speed 100 is default
+# draw_speed 0 will draw the function instantly
+draw_speed       100
+
+# set RGB color
+# Cyan is default
+color            255 0 0
+
+# set maximum theta value
+# theta_max 50*pi is default
+theta_max        20*pi
+
+# set theta increment (change in theta per point)
+# theta_increment pi/3000 is default and produces a solid line for most functions
+# larger values (like pi/100) will yield dots instead of a solid line
+# will also affect draw speed
+theta_increment  pi/3000
+
+# set line width
+# 0 = thinnest, default
+# 1 = medium
+# 2 = widest
+line_width       0
+
+# rotation per frame
+rotation_speed  pi/10000 
+
+# end function definition
+end
+
+#function         175 * sin(4 *theta / 9)
+draw_speed       0
+color 		     150 0 0
+theta_max	     2*pi
+line_width       2
+rotation_speed  -pi/100
+#end
+
+#function         150 * sin(4 *theta / 9)
+draw_speed       0
+color 		     100 0 0
+theta_max	     2*pi
+line_width       2
+rotation_speed   pi/100
+#end
+
+#function         125 * sin(4 *theta / 9)
+draw_speed       0
+color 		     50 0 0
+theta_max	     2*pi
+line_width       2
+rotation_speed  -pi/100
+#end
+
+#function         100 * sin(4 *theta / 9)
+draw_speed       0
+color 		     10 0 0
+theta_max	     2*pi
+line_width       2
+rotation_speed   pi/100
+#end
