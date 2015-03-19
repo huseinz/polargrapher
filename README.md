@@ -1,5 +1,3 @@
-## Polar Function Grapher
-
    polargrapher - plot arbitrary polar functions
 
 #####USAGE
