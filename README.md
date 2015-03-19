@@ -1,5 +1,3 @@
-## Polar Function Grapher
-
    polargrapher - plot arbitrary polar functions
 
 #####USAGE
@@ -31,7 +29,7 @@
 		If -d is used without an argument, recording will be disabled to prevent overwriting the default 'frames' directory.
 
 
-Pressing 'q' will exit the program.
+Pressing `q` will exit the program.
 
 The above options can also be defined directly in the input files. They must be defined on their own lines and will override the command line options. 
 
@@ -89,10 +87,13 @@ Dependencies:
 	libsfml (make sure this is SFML 2 and not SFML 1.6)
 	libmuparser
 
-Once dependencies are installed, simply run 'make'.
+Once dependencies are installed, simply run `make`.
 
-This program is intended for * nix environments, but should be fairly easy to modify for Windows if compiling with MinGW. The only thing that should need to be changed is the forwardslash in the *void record()* function to conform to Windows' filepath syntax. 
+This program is intended for * nix environments, but should be fairly easy to modify for Windows if compiling with MinGW. The only thing that should need to be changed is the forwardslash in the `record()` function to conform to Windows' filepath syntax. 
 
 #####TODO
 
+Allow user to set where output images are written to
+Make cross platform
 Improve documentation
+
