@@ -1,14 +1,14 @@
    polargrapher - plot arbitrary polar functions
 
-#####USAGE
+######USAGE
 ```
 polargrapher [OPTION]... [FILE]...
 ```
 
-#####DESCRIPTION
+######DESCRIPTION
    Plots arbitrary polar functions from file. Can also write frames to image files.
 
-#####OPTIONS
+######OPTIONS
 ```
 -f      fullscreen mode
 
@@ -34,7 +34,7 @@ Pressing `q` will exit the program.
 
 The above options can also be defined directly in the input files. They must be defined on their own lines and will override the command line options. 
 
-#####DEFINING FUNCTIONS
+######DEFINING FUNCTIONS
 
 Functions to be plotted are first declared using the `function` keyword followed by the function itself.   
 The syntax is the muparser library's syntax, which is intuitive and easy to use. It's just like using Wolfram Alpha.  
@@ -83,7 +83,7 @@ rotation_speed       pi/10000
 end
 ```
 
-#####BUILDING
+######BUILDING
 
 Dependencies: 
 	libsfml (make sure this is SFML 2 and not SFML 1.6)
@@ -93,7 +93,7 @@ Once dependencies are installed, simply run `make`.
 
 This program is intended for Unix-like environments, but this is only due to the pathname syntax in the `record()` function. Changing this to Windows compatible syntax should be all that needs to be changed, I just haven't gotten around to making an ifdef for it.
 
-#####TODO
+######TODO
 
 Allow user to set where output images are written to
 
