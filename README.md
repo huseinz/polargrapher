@@ -99,3 +99,4 @@ Allow user to set where output images are written to
 
 Improve documentation
 
+Allow input from standard input / typing equations as arguments
