@@ -2,4 +2,4 @@
 CC=g++
 
 all:
-	$(CC) -o polargrapher polargrapher.cpp -lmuparser -lsfml-graphics -lsfml-window -lsfml-system -lm
+	$(CC) -O2 -o polargrapher polargrapher.cpp -lmuparser -lsfml-graphics -lsfml-window -lsfml-system -lm
